@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Timer</title>
+    <link rel="stylesheet" href="timer_style.css">
+    <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+</head>
+<body>
+
+<div id="wrap">
+
+    <div id="timer"><div id="tt"></div></div>
+    <div id="controls">
+        <button id="startPause" onclick="start()">Старт</button>
+        <button id="reset" onclick="reset()">Сброс</button>
+    </div>
+
+</div>
+
+
+<script>
+    var time = 0;
+    var run = 0;
+    document.getElementById("tt").innerHTML = "00:00:00";
+
+
+    function start()
+    {
+        if(run == 0){
+            run = 1;
+            running();
+            document.getElementById("startPause").innerHTML = "Пауза";
+            document.getElementById("startPause").classList.add('pause');
+        }else{
+            run = 0;
+            document.getElementById("startPause").innerHTML = "Продолжить";
+            document.getElementById("startPause").classList.remove('pause');
+        }
+    }
+
+    function reset()
+    {
+        run = 0;
+        time = 0;
+        document.getElementById("startPause").innerHTML = "Старт";
+        document.getElementById("tt").innerHTML = "00:00:00";
+        document.getElementById("startPause").classList.remove('pause');
+    }
+
+    function running()
+    {
+        if(run == 1){
+            setTimeout(function(){
+                time++;
+                var mins = Math.floor(time/10/60);
+                var secs = Math.floor(time/10 % 60);
+                var milisecs = time % 10;
+
+                if(mins < 10){
+                    mins = "0" + mins;
+                }
+                if(secs < 10){
+                    secs = "0" + secs;
+                }
+                document.getElementById("tt").innerHTML = mins + ":" + secs + ":" + milisecs + "0";
+                running();
+
+            },100);
+        }
+    }
+</script>
+
+
+</body>
+</html>

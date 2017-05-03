@@ -1,0 +1,57 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+#wrap{
+    width: 980px;
+    margin: 0 auto;
+    color: #303030;
+}
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+#timer, #controls {
+    width: 310px;
+    margin: 10px auto;
+}
+#timer {
+    height: 50px;
+    font-size: 40px;
+    font-family: 'Orbitron', sans-serif;
+}
+#timer #tt {
+    margin: auto;
+    width: 218px;
+}
+#startPause, #reset {
+    width: 150px;
+    padding: 5px 15px;
+    font-size: 20px;
+    border: transparent;
+    border-radius: 5px;
+}
+#startPause:focus, #reset:focus {
+    border: transparent;
+    outline: none;
+}
+#startPause {
+    background-color: #2e8f11;
+    margin-right: 5px;
+}
+#startPause:hover{
+    background-color: #59ba25;
+}
+#startPause.pause {
+    background-color: #ED8712;
+}
+#startPause.pause:hover {
+    background-color: #F99420;
+}
+#reset {
+    background-color: #ff0000;
+}
+#reset:hover {
+    background-color: #ff4645;
+}
